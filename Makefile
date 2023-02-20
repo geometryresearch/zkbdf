@@ -1,5 +1,5 @@
-LDFLAG=-L/Users/kobigurk/homebrew/opt/openssl@3/lib
-CPPFLAGS=-I/Users/kobigurk/homebrew/opt/openssl@3/include
+LDFLAGS=-L$(HOME)/homebrew/opt/openssl@3/lib
+CPPFLAGS=-I$(HOME)/homebrew/opt/openssl@3/include
 TARGETS : zkboo_prove zkboo_verify zkbdf_eval zkbdf_verify zkbdf_verifyPseudo 
 
 zkboo_prove : zkboo_prove.c zkboo_shared.h
