@@ -1028,7 +1028,13 @@ for (r=0;r<NUM_ROUNDS;r++)
 		printf("\n");
 	}
 	H3(finalHash1, finalHash2, &(as[r]), /*NUM_ROUNDS*/ 1, &(es[r]));
-
+	while (es[r] != 0) {
+		localViews[r][2].y[100] += 1;
+		H(keys[r][2], localViews[r][2], rs[r][2], hash1);
+		memcpy(as[r].h[2], &hash1, 32);
+		H3(finalHash1, finalHash2, &(as[r]), /*NUM_ROUNDS*/ 1, &(es[r]));
+	}
+	printf("Sampled trit: %d\n", es[r]);
 
 	//Packing Z
 
